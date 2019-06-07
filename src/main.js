@@ -9,6 +9,7 @@ $(document).ready(function () {
 		let condition = $('#condition').val();
 		$('#condition').val("");
 		console.log(process.env.exports.apiKEY);
+		console.log(condition);
 
 		let conditionSearch = new ConditionSearch();
 		let promise = conditionSearch.getDoctorsByCondition(condition);
