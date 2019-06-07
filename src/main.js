@@ -14,7 +14,9 @@ $(document).ready(function () {
 
 		promise.then(function (response) {
 			let body = JSON.parse(response);
-			$('.displayName').text(`The Doctor, Dr. ${body.data.firstName} `);
+			$('.name&Title').text(`${data.practices.name}`);
+			$('.address').text('${data.practices.visit_address.street}<br>${data.practices.visit_address.city}, ${data.practices.visit_address.state}<br>${data.practices.visit_address.zip}');
+			$('.contact').text('${data.practices.phones.type}: ${data.practices.phones.number}')
 		}, function (error) {
 			$('.error').text(`There was an error processing your request: ${error.message}`);
 		});
