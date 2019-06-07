@@ -8,6 +8,7 @@ $(document).ready(function () {
 	$('#medicalCondition').click(function () {
 		let condition = $('#condition').val();
 		$('#condition').val("");
+		console.log(process.env.exports.apiKEY);
 
 		let conditionSearch = new ConditionSearch();
 		let promise = conditionSearch.getDoctorsByCondition(condition);
