@@ -10,14 +10,20 @@
 
 			<div class="container">
 				<label for="condition">
-					<h3>Enter a medical condition:</h3>
-					<input id="condition" type="text"><br>
+					<h3>Enter a medical condition and/or a name of a preferred physician:</h3>
+
+					<input id="condition" type="text" placeholder="condition">
+
+					<input id="drName" type="text" placeholder="name of physician">
+
 					<button class="btn btn-dark" id="medicalCondition">Find A Doctor Near By</button>
 				</label>
 
 				<div class="foundResult">
 					<h4 class="nameAndTitle"></h4><br>
-					<p class="address"></p>
+					<p class="addressStreet"></p>
+					<p class="cityAndState"></p>
+					<p class="zip"></p>
 					<p class="contact"></p>
 				</div>
 				<div class="noResult">
