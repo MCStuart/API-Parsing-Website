@@ -20,16 +20,18 @@ $(document).ready(function () {
         $('.noResult').text("There is currently no doctors in our database with those partucular parameters. We're sorry, please try another search.")
       } 
       else { 
-        for (let i = 0; i < body.data.length; i++) {
-          body.data.forEach(function(result) {
-            $('.nameAndTitle').append(`${result.practices[i].name}`);
-            $('.addressStreet').append(`${result.practices[i].visit_address.street}`);
-            $('.cityAndState').append(`${result.practices[i].visit_address.city}, ${result.practices[i].visit_address.state}`);
-            $('.zip').append(`${result.practices[i].visit_address.zip}`);
-            // if ()
-            $('.contact').append(`${result.practices[i].phones.type}: ${result.practices[i].phones.number}`);
-          });		
-        }
+        body.data.forEach(function(result) {
+          for (let i = 0; i < body.data.length; i++) {
+            $('.foundResult').append(`${result.practices[i].name}`
+              // `${result.practices[i].visit_address.street}`,
+              // `${result.practices[i].visit_address.city}`,
+              // `${result.practices[i].visit_address.state}`,
+              // `${result.practices[i].visit_address.zip}`,
+              // // if ()
+							// `${result.practices[i].phones.type}`, `${result.practices[i].phones.number}`
+							);
+          }
+        });		
       }
     }, 
     function (error) {
