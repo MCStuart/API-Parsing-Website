@@ -16,20 +16,21 @@ $(document).ready(function () {
 
     promise.then(function (response) {
       let body = JSON.parse(response);
-      if (body.data.length === 0) {
+      if (body.data.length === 0 || (condition === "" && drName === "")) {
         $('.noResult').text("There is currently no doctors in our database with those partucular parameters. We're sorry, please try another search.")
       } 
       else { 
         body.data.forEach(function(result) {
           for (let i = 0; i < body.data.length; i++) {
-            $('.foundResult').append(`${result.practices[i].name}`
-              // `${result.practices[i].visit_address.street}`,
-              // `${result.practices[i].visit_address.city}`,
-              // `${result.practices[i].visit_address.state}`,
-              // `${result.practices[i].visit_address.zip}`,
-              // // if ()
-							// `${result.practices[i].phones.type}`, `${result.practices[i].phones.number}`
-							);
+            $('.foundResult').append(`${result.practices[i].name}<br>
+              ${result.practices[i].visit_address.street}<br>
+              ${result.practices[i].visit_address.city}<br>
+              ${result.practices[i].visit_address.state}<br>
+							${result.practices[i].visit_address.zip}<br>
+							"Office Number: "${result.practices[i].phones[0].number}<br>
+							"Website: " <a href="${result.practices[i].website}">${result.practices[i].website}</a><br>
+							Currently Accepting New Patients: ${result.practices[i].accepts_new_patients}<br><br>`
+            );
           }
         });		
       }
